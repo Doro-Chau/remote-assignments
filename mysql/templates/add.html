@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="grid-100">
+            <div>{{ errorMessage }}</div>
+            <form action="{{ url_for('index') }}" method="POST">
+                <label>email</label>
+                <input type="text" name="email" value="" autofocus>
+                <label>password</label>
+                <input type="text" name="password" value="" autofocus>
+                <input type="submit" name="signup" value="Sign up">
+                <input type="submit" name="signin" value="Sign in">
+            </form>
+        </div>
+    </body>
+</html>

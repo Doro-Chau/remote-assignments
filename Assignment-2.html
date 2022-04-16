@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+        function ajax(src, callback){
+            const response = new XMLHttpRequest();
+            response.open('get', src, true);
+            response.send();
+            response.onload = function(){
+                callback(response);
+            };      
+        }
+        
+        async function render(data){
+            parsedData = JSON.parse(data.responseText);
+            for (var i=0; i<parsedData.length; i++) {
+                const myH2 = document.createElement('h2');
+                myH2.textContent = JSON.stringify(parsedData[i]);
+                document.body.appendChild(myH2);
+            }
+        }
+
+        ajax("https://appworks-school.github.io/Remote-Aassigiment-Data/products",
+        function(response){
+            render(response);
+        }); 
+        // you should get product information in JSON format and render data in the page
+    </script>
+</body>
+</html>
